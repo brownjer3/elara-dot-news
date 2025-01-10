@@ -11,8 +11,7 @@ export function Footer() {
           <div>
             <h3 className="text-2xl font-bold mb-4 text-blue-400">$Elara</h3>
             <p className="text-blue-200 max-w-md">
-              Powering the future of AI-driven data analytics on the SUI blockchain.
-              Join us in revolutionizing the cryptocurrency market.
+              Connecting agents, empowering developers, and driving value through every interaction.
             </p>
             <div className="flex mt-4 space-x-4">
               <Button variant="outline" size="icon" asChild className="border-blue-500 text-blue-400 hover:bg-blue-900/50">
