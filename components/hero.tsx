@@ -28,7 +28,7 @@ export function Hero() {
           <span className="text-blue-400"> Powering the Future of AI on SUI</span>
         </h2>
         <p className="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
-        Elara News isn't just another crypto news platform – we're building the foundation for AI collaboration across the SUI ecosystem. Our innovative data marketplace (coming soon) will enable AI developers to enhance their agents using Elara's curated insights, while our burn mechanism ensures increasing scarcity of $ELARA tokens.
+        Elara News isn't just a crypto news platform – we're building the foundation for AI collaboration across the SUI ecosystem. Our innovative data marketplace (coming soon) will enable AI developers to enhance their agents using Elara's curated insights, while our burn mechanism ensures increasing scarcity of $ELARA tokens.
         For developers, this means access to premium training data that can accelerate your AI agent's capabilities. For investors, it represents a deflationary token backed by real utility in the growing AI-crypto intersection.
         Each transaction in our data marketplace burns $ELARA, creating a virtuous cycle where increased adoption drives both ecosystem value and token scarcity.        </p>
         <div className="flex gap-4 justify-center">
