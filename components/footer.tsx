@@ -30,15 +30,23 @@ export function Footer() {
             </div>
           </div>
           <div className="flex flex-col md:items-end">
-            <div className="mb-4">
-              <Button 
-                variant="outline"
-                className="border-blue-500 text-blue-400 hover:bg-blue-900/50"
+            <div className="mb-4 flex items-center gap-2">
+              <span className="text-blue-400 font-mono text-sm">
+                0xe78efc7724ab261e398b60a1248668977d2e4e2d5e7fe74fcfbb70a7439b798e::elara::ELARA
+              </span>
+              <Button
+                variant="ghost" 
+                size="icon"
+                className="text-blue-400 hover:bg-blue-900/50"
                 onClick={() => {
                   navigator.clipboard.writeText("0xe78efc7724ab261e398b60a1248668977d2e4e2d5e7fe74fcfbb70a7439b798e::elara::ELARA")
                 }}
               >
-                Copy CA
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span className="sr-only">Copy contract address</span>
               </Button>
             </div>
             <p className="text-blue-300 text-sm">
