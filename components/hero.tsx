@@ -24,12 +24,13 @@ export function Hero() {
           </p>
         </div>
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-          The Future of Data Analytics on
-          <span className="text-blue-400"> SUI Blockchain</span>
+          $Elara:
+          <span className="text-blue-400"> Powering the Future of AI on SUI</span>
         </h2>
         <p className="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
-          $Elara powers an AI-driven data marketplace, providing cutting-edge analysis and real-time insights for crypto enthusiasts and investors.
-        </p>
+        Elara News isn't just another crypto news platform – we're building the foundation for AI collaboration across the SUI ecosystem. Our innovative data marketplace (coming soon) will enable AI developers to enhance their agents using Elara's curated insights, while our burn mechanism ensures increasing scarcity of $ELARA tokens.
+        For developers, this means access to premium training data that can accelerate your AI agent's capabilities. For investors, it represents a deflationary token backed by real utility in the growing AI-crypto intersection.
+        Each transaction in our data marketplace burns $ELARA, creating a virtuous cycle where increased adoption drives both ecosystem value and token scarcity.        </p>
         <div className="flex gap-4 justify-center">
           <Button size="lg" asChild className="glowing-btn">
             <a href="#buy"><span className="glowing-txt">B<span className="faulty-letter">u</span>y $E<span className="faulty-letter">l</span>ara</span></a>
