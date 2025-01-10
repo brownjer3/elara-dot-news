@@ -42,11 +42,11 @@ export default function RootLayout({
     for (let i = 0; i < numberOfStars; i++) {
       const star = document.createElement('div');
       star.className = 'star';
-      star.style.width = '${Math.random() * 2}px';
+      star.style.width = Math.random() * 2 + 'px';
       star.style.height = star.style.width;
-      star.style.left = '${Math.random() * 100}%';
-      star.style.top = '${Math.random() * 100}%';
-      star.style.animationDelay = '${Math.random() * 3}s';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 3 + 's';
       starsContainer.appendChild(star);
     }
   }
@@ -57,12 +57,12 @@ export default function RootLayout({
     for (let i = 0; i < numberOfParticles; i++) {
       const particle = document.createElement('div');
       particle.className = 'particle';
-      particle.style.width = '${Math.random() * 5 + 1}px';
+      particle.style.width = (Math.random() * 5 + 1) + 'px';
       particle.style.height = particle.style.width;
-      particle.style.left = '${Math.random() * 100}%';
-      particle.style.top = '${Math.random() * 100}%';
-      particle.style.animationDuration = '${Math.random() * 10 + 10}s';
-      particle.style.animationDelay = '${Math.random() * 5}s';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + '%';
+      particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+      particle.style.animationDelay = Math.random() * 5 + 's';
       particlesContainer.appendChild(particle);
     }
   }
@@ -73,14 +73,14 @@ export default function RootLayout({
     for (let i = 0; i < numberOfShootingStars; i++) {
       const shootingStar = document.createElement('div');
       shootingStar.className = 'shooting-star';
-      shootingStar.style.top = '${Math.random() * 50}%';
-      shootingStar.style.left = '${Math.random() * 50}%';
-      shootingStar.style.animationDelay = '${Math.random() * 5}s';
+      shootingStar.style.top = Math.random() * 50 + '%';
+      shootingStar.style.left = Math.random() * 50 + '%';
+      shootingStar.style.animationDelay = Math.random() * 5 + 's';
       shootingStarsContainer.appendChild(shootingStar);
     }
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
+  window.addEventListener('load', () => {
     createStars();
     createParticles();
     createShootingStars();
