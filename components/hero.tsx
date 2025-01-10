@@ -33,7 +33,7 @@ export function Hero() {
         Each transaction in our data marketplace burns $ELARA, creating a virtuous cycle where increased adoption drives both ecosystem value and token scarcity.        </p>
         <div className="flex gap-4 justify-center">
           <Button size="lg" asChild className="glowing-btn">
-            <a href="#buy"><span className="glowing-txt">B<span className="faulty-letter">u</span>y $E<span className="faulty-letter">l</span>ara</span></a>
+            <a href="https://suiai.fun/pool/0xb786bebe6634445704af3e60c9593c3f9af82b791ba8fb497f875c65397dec48"><span className="glowing-txt">B<span className="faulty-letter">u</span>y $E<span className="faulty-letter">l</span>ara</span></a>
           </Button>
         </div>
       </div>
