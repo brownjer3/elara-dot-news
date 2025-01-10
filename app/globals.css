@@ -97,31 +97,30 @@
 
 .glowing-btn {
   position: relative;
-  color: var(--glow-color);
+  color: rgb(59, 130, 246);
   cursor: pointer;
   padding: 0.35em 1em;
-  border: 0.15em solid var(--glow-color);
+  border: 0.15em solid rgb(59, 130, 246);
   border-radius: 0.45em;
   background: none;
   perspective: 2em;
-  font-family: "Raleway", sans-serif;
   font-size: 1.1em;
   font-weight: 600;
-  letter-spacing: 1em;
-  box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
-    0px 0px 0.5em 0px var(--glow-color);
+  letter-spacing: 0.3em;
+  box-shadow: inset 0px 0px 0.5em 0px rgb(59, 130, 246),
+    0px 0px 0.5em 0px rgb(59, 130, 246);
   animation: border-flicker 2s linear infinite;
 }
 
 .glowing-txt {
   float: left;
-  margin-right: -0.8em;
+  margin-right: -0.2em;
   -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
-    0 0 0.45em var(--glow-color);
+    0 0 0.45em rgb(59, 130, 246);
   -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
-    0 0 0.45em var(--glow-color);
+    0 0 0.45em rgb(59, 130, 246);
   text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
-    0 0 0.45em var(--glow-color);
+    0 0 0.45em rgb(59, 130, 246);
   animation: text-flicker 3s linear infinite;
 }
 

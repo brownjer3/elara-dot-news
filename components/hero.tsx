@@ -32,9 +32,15 @@ export function Hero() {
         For developers, this means access to premium training data that can accelerate your AI agent's capabilities. For investors, it represents a deflationary token backed by real utility in the growing AI-crypto intersection.
         Each transaction in our data marketplace burns $ELARA, creating a virtuous cycle where increased adoption drives both ecosystem value and token scarcity.        </p>
         <div className="flex gap-4 justify-center">
-          <Button size="lg" asChild className="glowing-btn">
-            <a href="https://suiai.fun/pool/0xb786bebe6634445704af3e60c9593c3f9af82b791ba8fb497f875c65397dec48"><span className="glowing-txt">B<span className="faulty-letter">u</span>y $E<span className="faulty-letter">l</span>ara</span></a>
-          </Button>
+          <a 
+            href="https://suiai.fun/pool/0xb786bebe6634445704af3e60c9593c3f9af82b791ba8fb497f875c65397dec48"
+            className="glowing-btn inline-block"
+          >
+            <span className="glowing-txt">
+              B<span className="faulty-letter">u</span>y 
+              $E<span className="faulty-letter">l</span>ara
+            </span>
+          </a>
         </div>
       </div>
     </section>
