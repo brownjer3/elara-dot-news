@@ -29,25 +29,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${spaceGrotesk.className} flex flex-col min-h-screen text-gray-100`}>
-        <div className="space-background">
-          <div id="stars" className="stars"></div>
-          <div id="particles" className="particles"></div>
-          <div id="shooting-stars" className="shooting-stars"></div>
-        </div>
+        <div className="fixed inset-0 bg-gradient-to-b from-[#1B2735] to-[#090A0F] -z-10" />
         {children}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (document.readyState === 'complete') {
-                import('/scripts/animations.ts').then(module => module.initializeAnimations());
-              } else {
-                window.addEventListener('load', () => {
-                  import('/scripts/animations.ts').then(module => module.initializeAnimations());
-                });
-              }
-            `
-          }}
-        />
       </body>
     </html>
   )
