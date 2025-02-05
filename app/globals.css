@@ -227,3 +227,16 @@
 .elegant-button {
 	animation: button-pulse 3s infinite;
 }
+
+@keyframes ticker {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
+
+.animate-ticker {
+	animation: ticker 15s linear infinite;
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { motion, useAnimationControls } from "framer-motion";
+import { useAnimationControls } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 interface TokenData {
@@ -99,29 +99,8 @@ export function CurrencyTicker() {
 	);
 
 	return (
-		<div
-			className="w-full bg-black/50 backdrop-blur-md py-2 overflow-hidden"
-			ref={containerRef}
-		>
-			<motion.div
-				ref={tickerRef}
-				className="flex whitespace-nowrap"
-				animate={controls}
-				onAnimationComplete={() => {
-					// Reset position instantly when animation completes
-					controls.set({ x: 0 });
-					// Restart the animation
-					controls.start({
-						x: -contentWidth / 2,
-						transition: {
-							duration: 30,
-							ease: "linear",
-							repeat: Infinity,
-							repeatType: "loop",
-						},
-					});
-				}}
-			>
+		<div className="w-full overflow-hidden bg-black/50 backdrop-blur-md border-b border-accent/20">
+			<div className="animate-ticker flex whitespace-nowrap">
 				{/* Render two sets of items to create seamless loop */}
 				{tokens?.map((token, index) => (
 					<CurrencyItem
@@ -135,7 +114,7 @@ export function CurrencyTicker() {
 						token={token}
 					/>
 				))}
-			</motion.div>
+			</div>
 		</div>
 	);
 }
