@@ -31,12 +31,12 @@ export function Roadmap() {
   return (
     <section id="roadmap" className="py-16 bg-black/30 backdrop-blur-sm relative z-10">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-blue-300">Development Roadmap</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-accent">Development Roadmap</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {phases.map((phase, index) => (
-            <Card key={index} className="bg-blue-900/20 border-blue-500/20 backdrop-blur-sm hover:bg-blue-800/30 transition-colors duration-300">
+            <Card key={index} className="bg-accent/10 border-accent/20 backdrop-blur-sm hover:bg-accent/30 transition-colors duration-300">
               <CardHeader>
-                <CardTitle className="text-xl font-semibold text-blue-400">
+                <CardTitle className="text-xl font-semibold text-accent">
                   {phase.title}
                 </CardTitle>
               </CardHeader>
@@ -45,9 +45,9 @@ export function Roadmap() {
                   {phase.items.map((item, itemIndex) => (
                     <li 
                       key={itemIndex}
-                      className="flex items-center text-blue-100"
+                      className="flex items-center text-gray-100"
                     >
-                      <span className="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+                      <span className="w-2 h-2 bg-accent rounded-full mr-3"></span>
                       {item}
                     </li>
                   ))}

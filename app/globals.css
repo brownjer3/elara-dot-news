@@ -1,62 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
-  :root {
-    --glow-color: rgb(59, 130, 246);
-    --background: 240 30% 5%;
-    --foreground: 210 40% 98%;
+	:root {
+		--background: 240 30% 5%;
+		--foreground: 210 40% 98%;
 
-    --card: 240 30% 10%;
-    --card-foreground: 210 40% 98%;
- 
-    --popover: 240 30% 10%;
-    --popover-foreground: 210 40% 98%;
- 
-    --primary: 210 100% 50%;
-    --primary-foreground: 210 40% 98%;
- 
-    --secondary: 240 30% 20%;
-    --secondary-foreground: 210 40% 98%;
- 
-    --muted: 240 30% 20%;
-    --muted-foreground: 215 20.2% 65.1%;
- 
-    --accent: 240 30% 20%;
-    --accent-foreground: 210 40% 98%;
- 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
- 
-    --border: 240 30% 20%;
-    --input: 240 30% 20%;
-    --ring: 240 30% 20%;
-    
-    --radius: 0.5rem;
-  }
+		--card: 240 30% 10%;
+		--card-foreground: 210 40% 98%;
+
+		--popover: 240 30% 10%;
+		--popover-foreground: 210 40% 98%;
+
+		--primary: 168 86% 57%;
+		--primary-foreground: 210 40% 98%;
+
+		--secondary: 240 30% 20%;
+		--secondary-foreground: 210 40% 98%;
+
+		--muted: 240 30% 20%;
+		--muted-foreground: 215 20.2% 65.1%;
+
+		--accent: 174 86% 53%;
+		--accent-foreground: 210 40% 98%;
+
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 210 40% 98%;
+
+		--border: 240 30% 20%;
+		--input: 240 30% 20%;
+		--ring: 168 86% 57%;
+
+		--radius: 0.5rem;
+	}
 }
- 
+
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+		font-family: "Space Grotesk", sans-serif;
+	}
 }
 
-.glowing-btn {
-  @apply relative px-6 py-2 bg-transparent border-2 border-blue-500 
-         rounded-lg text-blue-500 font-semibold transition-all
-         hover:bg-blue-500 hover:text-white;
+.space-background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background: linear-gradient(to bottom, #0f0f1a, #1a1a2f);
+	overflow: hidden;
 }
 
-.glowing-txt {
-  @apply tracking-wider;
+.stars {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
 }
 
-.faulty-letter {
-  @apply opacity-80;
+.star {
+	position: absolute;
+	background-color: #ffffff;
+	border-radius: 50%;
 }
 
+@keyframes subtle-twinkle {
+	0%,
+	100% {
+		opacity: 0.5;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+
+@keyframes subtle-float {
+	0% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+
+.particle {
+	position: absolute;
+	background-color: rgba(100, 149, 237, 0.2);
+	border-radius: 50%;
+	pointer-events: none;
+	animation: subtle-float 15s infinite ease-in-out;
+}
+
+@keyframes shoot {
+	0% {
+		transform: translate(0, 0) rotate(-45deg);
+		opacity: 1;
+	}
+	100% {
+		transform: translate(300px, 300px) rotate(-45deg);
+		opacity: 0;
+	}
+}
+
+.shooting-stars {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.shooting-star {
+	position: absolute;
+	background: white;
+	border-radius: 50%;
+	opacity: 0;
+	transform: rotate(-45deg);
+	animation: shooting-star-fall var(--fall-duration) ease-out var(--fall-delay)
+		infinite;
+}
+
+@keyframes shooting-star-fall {
+	0% {
+		opacity: 0;
+		transform: translateX(0) translateY(0) rotate(-45deg);
+	}
+	10% {
+		opacity: 1;
+	}
+	70% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(-100px) translateY(var(--fall-distance))
+			rotate(-45deg);
+	}
+}
+
+/* Optional: add a subtle trail effect */
+.shooting-star::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: white;
+	filter: blur(4px);
+	opacity: 0.3;
+}
+
+@keyframes pulse-glow {
+	0%,
+	100% {
+		opacity: 0.3;
+		transform: scale(1.05);
+	}
+	50% {
+		opacity: 0.6;
+		transform: scale(1.1);
+	}
+}
+
+.animate-pulse-glow {
+	animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.elegant-button {
+	position: relative;
+	display: inline-block;
+	padding: 12px 24px;
+	font-size: 18px;
+	font-weight: 600;
+	color: #fff;
+	background: linear-gradient(45deg, #34efe1, #3b82f6);
+	border: none;
+	border-radius: 30px;
+	overflow: hidden;
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
+.elegant-button::before {
+	content: "";
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	right: -2px;
+	bottom: -2px;
+	background: linear-gradient(45deg, #34efe1, #3b82f6, #34efe1);
+	z-index: -1;
+	filter: blur(10px);
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.elegant-button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 5px 15px rgba(52, 239, 225, 0.4);
+}
+
+@keyframes button-pulse {
+	0%,
+	100% {
+		box-shadow: 0 0 0 0 rgba(52, 239, 225, 0.4);
+	}
+	50% {
+		box-shadow: 0 0 0 15px rgba(52, 239, 225, 0);
+	}
+}
+
+.elegant-button {
+	animation: button-pulse 3s infinite;
+}

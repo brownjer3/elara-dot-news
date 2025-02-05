@@ -1,19 +1,21 @@
-import { NavBar } from "@/components/navbar"
-import { Hero } from "@/components/hero"
-import { Roadmap } from "@/components/roadmap"
-import { CallToAction } from "@/components/call-to-action"
-import { Footer } from "@/components/footer"
+import { CurrencyTicker } from "@/components/currency-ticker";
+import { Footer } from "@/components/footer";
+import { Hero } from "@/components/hero";
+import { NavBar } from "@/components/navbar";
+import { Roadmap } from "@/components/roadmap";
 
 export default function Home() {
-  return (
-    <>
-      <NavBar />
-      <main className="flex-grow">
-        <Hero />
-        <Roadmap />
-      </main>
-      <Footer />
-    </>
-  )
+	return (
+		<>
+			<header className="fixed top-0 left-0 right-0 z-50 h-20">
+				<NavBar />
+				<CurrencyTicker />
+			</header>
+			<main className="flex-grow pt-24">
+				<Hero />
+				<Roadmap />
+			</main>
+			<Footer />
+		</>
+	);
 }
-
