@@ -228,15 +228,37 @@
 	animation: button-pulse 3s infinite;
 }
 
+.ticker-container {
+	display: flex;
+	white-space: nowrap;
+	will-change: transform;
+	transform: translate3d(0, 0, 0);
+}
+
+.ticker-content {
+	display: inline-flex;
+	white-space: nowrap;
+	animation: ticker 60s linear infinite;
+	will-change: transform;
+	transform: translate3d(0, 0, 0);
+}
+
 @keyframes ticker {
 	0% {
-		transform: translateX(0);
+		transform: translate3d(0, 0, 0);
 	}
 	100% {
-		transform: translateX(-50%);
+		transform: translate3d(-100%, 0, 0);
 	}
 }
 
-.animate-ticker {
-	animation: ticker 15s linear infinite;
+.ticker-container.paused .ticker-content {
+	animation-play-state: paused;
+}
+
+/* Add these properties to the parent container for better performance */
+.ticker-container {
+	backface-visibility: hidden;
+	perspective: 1000px;
+	transform-style: preserve-3d;
 }

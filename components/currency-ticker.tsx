@@ -1,7 +1,6 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { useAnimationControls } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 interface TokenData {
@@ -26,10 +25,9 @@ const formatMarketCap = (marketCap: string) => {
 };
 
 export function CurrencyTicker() {
+	const [localTokens, setLocalTokens] = useState<TokenData[]>([]);
 	const containerRef = useRef<HTMLDivElement>(null);
-	const tickerRef = useRef<HTMLDivElement>(null);
-	const controls = useAnimationControls();
-	const [contentWidth, setContentWidth] = useState(0);
+	const [isPaused, setIsPaused] = useState(false);
 
 	const {
 		data: tokens,
@@ -44,26 +42,27 @@ export function CurrencyTicker() {
 			if (!res.ok) throw new Error("Failed to fetch data");
 			return res.json();
 		},
-		refetchInterval: 30000, // Refetch every 30 seconds
+		refetchInterval: 120000,
+		refetchIntervalInBackground: true,
+		staleTime: 119000,
+		cacheTime: 120000,
 	});
 
 	useEffect(() => {
-		if (tickerRef.current && containerRef.current) {
-			const newContentWidth = tickerRef.current.offsetWidth;
-			setContentWidth(newContentWidth);
-
-			// Start the animation
-			controls.start({
-				x: -newContentWidth / 2,
-				transition: {
-					duration: 30,
-					ease: "linear",
-					repeat: Infinity,
-					repeatType: "loop",
-				},
-			});
+		if (tokens && tokens.length > 0) {
+			if (JSON.stringify(tokens) !== JSON.stringify(localTokens)) {
+				setTimeout(() => {
+					setLocalTokens(tokens);
+				}, 1000);
+			}
 		}
-	}, [controls, tokens]);
+	}, [tokens]);
+
+	useEffect(() => {
+		if (tokens && tokens.length > 0 && localTokens.length === 0) {
+			setLocalTokens(tokens);
+		}
+	}, [tokens]);
 
 	if (error) {
 		return (
@@ -73,7 +72,7 @@ export function CurrencyTicker() {
 		);
 	}
 
-	if (isLoading) {
+	if (isLoading || localTokens.length === 0) {
 		return (
 			<div className="w-full bg-black/50 backdrop-blur-md py-2 text-white text-center">
 				Loading market data...
@@ -99,21 +98,31 @@ export function CurrencyTicker() {
 	);
 
 	return (
-		<div className="w-full overflow-hidden bg-black/50 backdrop-blur-md border-b border-accent/20">
-			<div className="animate-ticker flex whitespace-nowrap">
-				{/* Render two sets of items to create seamless loop */}
-				{tokens?.map((token, index) => (
-					<CurrencyItem
-						key={`set1-${index}`}
-						token={token}
-					/>
-				))}
-				{tokens?.map((token, index) => (
-					<CurrencyItem
-						key={`set2-${index}`}
-						token={token}
-					/>
-				))}
+		<div
+			className="w-full overflow-hidden bg-black/50 backdrop-blur-md border-b border-accent/20"
+			onMouseEnter={() => setIsPaused(true)}
+			onMouseLeave={() => setIsPaused(false)}
+		>
+			<div
+				ref={containerRef}
+				className={`ticker-container ${isPaused ? "paused" : ""}`}
+			>
+				<div className="ticker-content">
+					{localTokens.map((token, index) => (
+						<CurrencyItem
+							key={`set1-${token.tokenBase.symbol}-${index}`}
+							token={token}
+						/>
+					))}
+				</div>
+				<div className="ticker-content">
+					{localTokens.map((token, index) => (
+						<CurrencyItem
+							key={`set2-${token.tokenBase.symbol}-${index}`}
+							token={token}
+						/>
+					))}
+				</div>
 			</div>
 		</div>
 	);
