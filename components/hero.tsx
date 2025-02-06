@@ -52,7 +52,7 @@ export function Hero() {
 						className="w-12 h-12 rounded-full border-accent/20 bg-black/20 hover:bg-accent/20 hover:border-accent transition-colors"
 					>
 						<a
-							href="https://twitter.com/ElaraNewsSui"
+							href="https://x.com/elarasui"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
@@ -68,7 +68,7 @@ export function Hero() {
 						className="w-12 h-12 rounded-full border-accent/20 bg-black/20 hover:bg-accent/20 hover:border-accent transition-colors"
 					>
 						<a
-							href="https://t.me/ElaraNews"
+							href="https://t.me/ElaraSui"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
